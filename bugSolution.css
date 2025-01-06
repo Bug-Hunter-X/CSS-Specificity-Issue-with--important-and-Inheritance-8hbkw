@@ -1,0 +1,17 @@
+The solution involves removing the `!important` declaration from the `.child` selector and relying on the natural CSS cascade. This ensures that the more specific selector `.child .grandchild` takes precedence.
+
+```css
+.parent {
+  font-size: 16px;
+}
+
+.child {
+  font-size: 20px;
+}
+
+.child .grandchild {
+  font-size: 18px;
+}
+```
+
+Now, the `grandchild` element correctly inherits the `font-size: 18px` specified for it, avoiding the unexpected effects of `!important`.
