@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an unusual error related to specificity and inheritance:
+
+```css
+.parent {
+  font-size: 16px;
+}
+
+.child {
+  font-size: 20px !important;
+}
+
+.child .grandchild {
+  font-size: 18px;
+}
+```
+
+In this scenario, the `grandchild` element inherits the `font-size` from the `child` element, but the `!important` declaration on `.child` might lead to unexpected behavior.  The `grandchild` will end up having `font-size: 20px` instead of `18px` due to the `!important` rule overriding the more specific selector `.child .grandchild`. While `!important` is generally discouraged, this example demonstrates a case where it might surprisingly affect a descendant.  The specificity of the `.child .grandchild` selector is not sufficient to override the `!important` declaration of the parent.
